@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        input[type=text] {
+        width: 85%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid white;
+        background: transparent;
+        align-items: baseline;
+        font-size: 20px;
+        }
+
+        #main,#main2,#main5,#main6{
+            background: transparent;
+            backdrop-filter: blur(7px);
+            border-radius: 20px;
+        }
+
+        input[type=password] {
+        width: 85%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid white;
+        background: transparent;
+        align-items: baseline;
+        font-size: 20px;
+        }
+    </style>
+</head>
+<body background="C:\Users\rakes\OneDrive\Pictures\Screenshots\login3.jpg"></body>
+    <h1 style="text-align: center;padding-top: 50px;color:#3f547a;font-size: 50px;">Login</h1>
+    <div id="main" style="text-align: center;border: 2px solid #dbe1e3;height: 450px;width: 500px;margin-left: 500px;padding-top: 30px;">
+        <label style="font-size: 30px;color:#7b1d52;"><b>User Name</b></label><br>
+        <input type="text" name="text" id="User" style="color:black;">
+
+        <label style="font-size: 30px;color:#7b1d52;"><b>Password</b></label><br>
+        <input type="password" name="pass">
+
+        
+        <button type="text" id="main5" style="padding: 10px 10px;" onclick="generateOTP()"><b>Generate Code</b></button><br><br>
+        <label id="Captcha" style="font-size: 30px;color: #7b1d52;"><b>Enter Code</b></label><br>
+        <input type="text" name="cap" id="cap">
+        <br><br><br>
+        <button type="submit" id="main6" style="padding: 10px 10px;width: 85%;font-size: 20px;color: midnightblue;" onclick="validateOTP()"><b>Login</b></button>
+    </div>
+
+    <script>
+        function generateOTP() {
+            const otp = Math.floor(Math.random() * 10000) + 1;
+            alert("Generated OTP: " + otp);
+            document.getElementById("main6").value = otp;
+        }
+        function validateOTP() {
+            const enteredOTP = document.getElementById("cap").value;
+            const generatedOTP = document.getElementById("main6").value;
+            if (enteredOTP === generatedOTP) {
+                alert("Login Successful!");
+            } else {
+                alert("Login Unsuccessful.");
+            }
+        }
+    </script>
+</body>
+</html>
